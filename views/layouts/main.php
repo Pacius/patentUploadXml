@@ -12,6 +12,9 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
+$curRoute = Yii::$app->controller->route;
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -43,6 +46,12 @@ AppAsset::register($this);
         min-height: 247px;
         padding: 10px;
     }
+    .nav-link {
+        opacity: 0.6;
+    }
+    .nav-link.active {
+        opacity: 1;
+    }
 </style>
 
 <div class="container">
@@ -54,7 +63,7 @@ AppAsset::register($this);
                 ПРОГРАМНОЕ СРЕДСТВО ДЛЯ УЧЁТА И АНАЛИЗА БИЗНЕС-ПЛАНОВ ОРГАНИЗАЦИЙ ГОРОДА
             </div>
             <div style="justify-self: right;">
-                <a href="/" class="nav-link">На главную</a>
+                <a href="/" class="nav-link <?=$curRoute == "site/index" ? 'active' : ''?>">На главную</a>
                 <a href="/" class="nav-link ">Помощь</a>
                 <a href="/" class="nav-link ">Поиск</a>
             </div>
@@ -63,7 +72,7 @@ AppAsset::register($this);
     <div class="row">
         <div class="col-xs-3">
             <div id="list-example" class="list-group">
-                <a class="list-group-item list-group-item-action active" href="/xml/"><i class="glyphicon glyphicon-save-file"></i><span>Загрузка данных</span></a>
+                <a class="list-group-item list-group-item-action <?=$curRoute == "xml/upload" ? 'active' : ''?>" href="/xml/"><i class="glyphicon glyphicon-save-file"></i><span>Загрузка данных</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-th-list"></i><span>Просмотр загруженных</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-file"></i><span>Отчеты</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-open-file"></i><span>Экспорт</span></a>
@@ -82,6 +91,32 @@ AppAsset::register($this);
                 </div>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <pre>
+        <Поля данных>
+        <Организация>
+            параметры организации
+            <Бизнес-план>
+                <Показатели бизнес-плана>
+                    <Дата/>
+                </Показатели бизнес-плана>
+                <Направления фин.оздоровления>
+                    <Период С/>
+                    <Период По/>
+                </Направления фин.оздоровления>
+            </Бизнес-план>
+            <Мероприятия по эффект. использованию>
+                параметры
+            </Мероприятия по эффект. использованию>
+            <Изменения бизнес-плана>
+                параметры
+            </Изменения бизнес-плана>
+        </Организация>
+    </Поля данных>
+    </pre>
+
 </div>
 
 
