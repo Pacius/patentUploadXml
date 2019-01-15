@@ -2,16 +2,6 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Учет и анализ бизнес планов организаций города';
 ?>
-<div class="site-index">
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-12">
-                <pre><?=var_dump($organizations);?></pre>
-            </div>
-        </div>
-
-    </div>
-</div>
+123

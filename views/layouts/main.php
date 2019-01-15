@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use app\widgets\Alert;
@@ -25,10 +26,68 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<style>
+    .nav-link {
+        text-decoration: none!important;
+        padding: 0 10px;
+    }
+    .nav-link:hover {
+        color:black;
+    }
+    .list-group-item i{
+        margin-right: 10px;
+    }
+    .main-container {
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        min-height: 247px;
+        padding: 10px;
+    }
+</style>
 
-<div class="wrap">
+<div class="container">
+    <div class="row ">
+
+        <div class="col-xs-12"
+             style="display: flex;justify-content: space-between;justify-items: flex-start;align-items: center;padding-top:20px;padding-bottom:20px;flex-direction: row;">
+            <div style="font-weight: bold;">
+                ПРОГРАМНОЕ СРЕДСТВО ДЛЯ УЧЁТА И АНАЛИЗА БИЗНЕС-ПЛАНОВ ОРГАНИЗАЦИЙ ГОРОДА
+            </div>
+            <div style="justify-self: right;">
+                <a href="/" class="nav-link">На главную</a>
+                <a href="/" class="nav-link ">Помощь</a>
+                <a href="/" class="nav-link ">Поиск</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div id="list-example" class="list-group">
+                <a class="list-group-item list-group-item-action active" href="/xml/"><i class="glyphicon glyphicon-save-file"></i><span>Загрузка данных</span></a>
+                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-th-list"></i><span>Просмотр загруженных</span></a>
+                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-file"></i><span>Отчеты</span></a>
+                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-open-file"></i><span>Экспорт</span></a>
+                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-hdd"></i><span>Справочники</span></a>
+                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-briefcase"></i><span>Сервисные службы</span></a>
+            </div>
+        </div>
+
+        <div class="col-xs-9" >
+                <div class="col-12 main-container">
+                    <?= Breadcrumbs::widget([
+                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ]) ?>
+                    <?= Alert::widget() ?>
+                    <?= $content ?>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="wrap">
     <?php
-    NavBar::begin([
+/*    NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
@@ -56,16 +115,16 @@ AppAsset::register($this);
         ],
     ]);
     NavBar::end();
-    ?>
+    */ ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
+        <? /*= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+        ]) */ ?>
+        <? /*= Alert::widget() */ ?>
+        <? /*= $content */ ?>
     </div>
-</div>
+</div>-->
 <!--
 <footer class="footer">
     <div class="container">

@@ -61,13 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $xmlFileUpload = file_get_contents(Yii::getAlias('@app') . "/xml/test.xml");
-
-        $organizationsToXml = new \SimpleXMLElement($xmlFileUpload);
-
-        return $this->render('index', [
-            'organizations' => $organizationsToXml
-        ]);
+        return $this->render('index');
     }
 
     /**
