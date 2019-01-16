@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use yii\web\UploadedFile;
 use app\models\UploadForm;
+use app\assets\AppConst;
 
 class XmlController extends Controller
 {
@@ -79,7 +80,7 @@ class XmlController extends Controller
     }
 
     public function getLinkDirectoryXml() {
-        return Yii::getAlias('@app') . "/".\app\models\PATH_FILE_SAVE."/";
+        return Yii::getAlias('@app') . "/".appConst::SAVE_FILE_PATH_XML."/";
     }
 
     public function processParsingXml($nameFile) {

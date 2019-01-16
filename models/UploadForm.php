@@ -3,8 +3,7 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\web\UploadedFile;
-
-const PATH_FILE_SAVE = "xml";
+use app\assets\AppConst;
 
 class UploadForm extends Model
 {
@@ -31,7 +30,7 @@ class UploadForm extends Model
     public function upload()
     {
         if ($this->validate()) {
-            $this->xmlFile->saveAs(\Yii::getAlias('@app') . "/" .PATH_FILE_SAVE.'/' . $this->xmlFile->baseName . '.' . $this->xmlFile->extension);
+            $this->xmlFile->saveAs(\Yii::getAlias('@app') . "/" .appConst::SAVE_FILE_PATH_XML.'/' . $this->xmlFile->baseName . '.' . $this->xmlFile->extension);
             return true;
         } else {
             return false;

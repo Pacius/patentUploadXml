@@ -9,7 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -47,13 +47,13 @@ $config = [
             'showScriptName' => false,
             'enablePrettyUrl' => true,
             'rules' => [
-              // '<controller:\w+>/<id:\d+>' => '<controller>/view',
-              // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-              // '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                // '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                // '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
-  ],
-    'params' => $params,
+    ],
+    'params' => $params
 ];
 
 if (YII_ENV_DEV) {
