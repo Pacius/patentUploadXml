@@ -76,7 +76,7 @@ $curRoute = Yii::$app->controller->route;
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-th-list"></i><span>Просмотр загруженных</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-file"></i><span>Отчеты</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-open-file"></i><span>Экспорт</span></a>
-                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-hdd"></i><span>Справочники</span></a>
+                <a class="list-group-item list-group-item-action <?=$curRoute == "static-info/index" ? 'active' : ''?>" href="/static-info/index"><i class="glyphicon glyphicon-hdd"></i><span>Справочники</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-briefcase"></i><span>Сервисные службы</span></a>
             </div>
         </div>
