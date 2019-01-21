@@ -16,7 +16,12 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-            [['xmlFile'], 'file', 'skipOnEmpty' => false],  // 'extensions' => 'xml'
+            [['xmlFile'], 'required', 'message' => "Файл не выбран!"],
+            [['xmlFile'], 'file',
+                'skipOnEmpty' => false,
+                'wrongExtension' => "Файл должен быть в формате xml!",
+                'extensions' => 'xml'
+                ],  // 'extensions' => 'xml'
         ];
     }
 

@@ -52,6 +52,30 @@ $curRoute = Yii::$app->controller->route;
     .nav-link.active {
         opacity: 1;
     }
+    .btn-light {
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #337ab7;
+        transition:0.3s;
+        border-radius: 3px;
+        border:none;
+        padding: 8px 30px;
+    }
+    .btn-light:hover {
+        background-color: #439ae5;
+
+    }
+    body {
+        font-family: Roboto;
+    }
+    input[type="file"] {
+        padding:10px;
+        border:1px solid #337ab7;
+        border-radius:3px;
+    }
+    #w0 input, #w0 button{
+        width:300px;
+    }
 </style>
 
 <div class="container">

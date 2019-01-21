@@ -6,6 +6,11 @@ use yii\widgets\ActiveForm;
 
 <?= $form->field($model, 'xmlFile')->fileInput() ?>
 
-    <button>Отправить файл на обработку</button>
+    <button class="btn-light">Отправить файл на обработку</button>
 
 <?php ActiveForm::end() ?>
+
+
+<style>
+
+</style>
