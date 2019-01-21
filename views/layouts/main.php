@@ -73,8 +73,25 @@ $curRoute = Yii::$app->controller->route;
         border:1px solid #337ab7;
         border-radius:3px;
     }
+    #w0 {
+        margin:0 auto;
+        width: 300px;
+    }
     #w0 input, #w0 button{
         width:300px;
+    }
+    .control-label {
+        font-size:17px;
+    }
+    .pux-center {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .control-label {
+        text-align: center;
+        width: 100%;
     }
 </style>
 

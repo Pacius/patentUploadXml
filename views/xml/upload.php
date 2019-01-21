@@ -2,13 +2,16 @@
 use yii\widgets\ActiveForm;
 ?>
 
-<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-<?= $form->field($model, 'xmlFile')->fileInput() ?>
+<div class="row pux-center" style="height: 400px;">
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+
+    <?= $form->field($model, 'xmlFile')->fileInput() ?>
 
     <button class="btn-light">Отправить файл на обработку</button>
 
-<?php ActiveForm::end() ?>
+    <?php ActiveForm::end() ?>
+</div>
 
 
 <style>
