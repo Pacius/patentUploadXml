@@ -4,7 +4,7 @@
 use app\assets\appConst;
 
 ?>
-<h2 style="margin-top:0">Справочники</h2>
+<h2 style="margin-top:0">Справочная информация</h2>
 
 <style>
     td {

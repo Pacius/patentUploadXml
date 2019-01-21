@@ -118,7 +118,7 @@ $curRoute = Yii::$app->controller->route;
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-file"></i><span>Отчеты</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-open-file"></i><span>Экспорт</span></a>
                 <a class="list-group-item list-group-item-action <?=$curRoute == "static-info/index" ? 'active' : ''?>" href="/static-info/index"><i class="glyphicon glyphicon-hdd"></i><span>Справочники</span></a>
-                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-briefcase"></i><span>Сервисные службы</span></a>
+                <a class="list-group-item list-group-item-action <?=$curRoute == "service/index" ? 'active' : ''?>" href="/service/index"><i class="glyphicon glyphicon-briefcase"></i><span>Сервисные службы</span></a>
             </div>
         </div>
 
@@ -133,83 +133,6 @@ $curRoute = Yii::$app->controller->route;
         </div>
     </div>
 </div>
-
-<div class="container">
-    Мисько Никита
-    <pre>
-        <Поля данных>
-        <Организация>
-            параметры организации
-            <Бизнес-план>
-                <Показатели бизнес-плана>
-                    <Дата/>
-                </Показатели бизнес-плана>
-                <Направления фин.оздоровления>
-                    <Период С/>
-                    <Период По/>
-                </Направления фин.оздоровления>
-            </Бизнес-план>
-            <Мероприятия по эффект. использованию>
-                параметры
-            </Мероприятия по эффект. использованию>
-            <Изменения бизнес-плана>
-                параметры
-            </Изменения бизнес-плана>
-        </Организация>
-    </Поля данных>
-    </pre>
-
-</div>
-
-
-<!--<div class="wrap">
-    <?php
-/*    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    */ ?>
-
-    <div class="container">
-        <? /*= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) */ ?>
-        <? /*= Alert::widget() */ ?>
-        <? /*= $content */ ?>
-    </div>
-</div>-->
-<!--
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer> -->
 
 <?php $this->endBody() ?>
 </body>
