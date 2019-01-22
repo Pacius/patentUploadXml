@@ -30,5 +30,5 @@ foreach ($logs['warnings'] as $log) {?>
     </div>
 <?php } ?>
 
-<a href="" class="btn-light" style="display: block;margin-bottom: 10px;text-align: center;">Перейти к просмотру организации</a>
+<a href="<?=$link?>" class="btn-light" style="display: block;margin-bottom: 10px;text-align: center;">Перейти к просмотру организации</a>
 

@@ -40,10 +40,10 @@ class BusinessPlanParams extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'code' => 'Code',
+            'id' => 'Уникальный номер',
+            'name' => 'Название',
+            'description' => 'Описание',
+            'code' => 'Код',
         ];
     }
 

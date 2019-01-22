@@ -47,17 +47,17 @@ class Organizations extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'unn' => 'Unn',
-            'okno' => 'Okno',
-            'name' => 'Name',
-            'full_name' => 'Full Name',
-            'form_realt' => 'Form Realt',
-            'fio_director' => 'Fio Director',
-            'phone' => 'Phone',
+            'id' => 'Уникальный номер',
+            'unn' => 'УНП',
+            'okno' => 'ОКНО',
+            'name' => 'Название',
+            'full_name' => 'Полное название',
+            'form_realt' => 'Форма собственности',
+            'fio_director' => 'ФИО директора',
+            'phone' => 'Телефон',
             'email' => 'Email',
-            'url' => 'Url',
-            'index' => 'Index',
+            'url' => 'Ссылка на сайт',
+            'index' => 'Почтовый индекс',
         ];
     }
 

@@ -186,7 +186,7 @@ class XmlController extends Controller
             }
         }
 
-        return $this->render('add', ['logs' => $logs]);
+        return $this->render('add', ['logs' => $logs, 'link' => '/organizations/view?id='.$organization->id]);
     }
 
 }

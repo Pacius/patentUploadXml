@@ -43,11 +43,11 @@ class BusinessPlan extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'date' => 'Date',
-            'description' => 'Description',
-            'code' => 'Code',
+            'id' => 'Уникальный номер',
+            'name' => 'Название',
+            'date' => 'Дата создания',
+            'description' => 'Описание плана',
+            'code' => 'Код',
         ];
     }
 

@@ -44,6 +44,9 @@ if ($error) {
 <body>
 <?php $this->beginBody() ?>
 <style>
+    .summary {
+        display: none;
+    }
     .nav-link {
         text-decoration: none!important;
         padding: 0 10px;
@@ -67,7 +70,7 @@ if ($error) {
     .nav-link.active {
         opacity: 1;
     }
-    .btn-light {
+    .btn-light, .btn-success {
         color: #fff;
         background-color: #337ab7;
         border-color: #337ab7;
@@ -76,7 +79,7 @@ if ($error) {
         border:none;
         padding: 8px 30px;
     }
-    .btn-light:hover {
+    .btn-light:hover, .btn-success:hover {
         background-color: #439ae5;
 
     }
@@ -88,11 +91,11 @@ if ($error) {
         border:1px solid #337ab7;
         border-radius:3px;
     }
-    #w0 {
+    .pux-center form {
         margin:0 auto;
         width: 300px;
     }
-    #w0 input, #w0 button{
+    .pux-center form input, .pux-center form button{
         width:300px;
     }
     .control-label {
@@ -161,6 +164,10 @@ if ($error) {
         <div class="col-xs-9" >
                 <div class="col-12 main-container">
                     <?= Breadcrumbs::widget([
+                        'homeLink' => [
+                            'label' => 'Главная',
+                            'url' => Yii::$app->homeUrl,
+                        ],
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     ]) ?>
                     <?= Alert::widget() ?>
