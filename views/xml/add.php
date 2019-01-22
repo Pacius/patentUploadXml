@@ -1,20 +1,34 @@
 <?php
+
 use yii\widgets\ActiveForm;
+
 ?>
 
-<div>
-    <?php //echo var_dump($fileItems['name'])?>
+<?php
+?>
 
-    <?php
-    if ($fileItems['name'][0] == "хлеб") {
-        echo 'result ok';
-    }
-    ?>
-</div>
-<div>
-    -----
-</div>
-<div>
-    <pre><?=var_dump($fileItems);?></pre>
-</div>
+    <style>
+        .alert {
+            padding: 3px 10px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+
+<?php
+foreach ($logs['result'] as $log) {?>
+    <div class="alert alert-success">
+        <?=$log?>
+    </div>
+<?php } ?>
+
+<?php
+foreach ($logs['warnings'] as $log) {?>
+    <div class="alert alert-warning">
+        <?=$log?>
+    </div>
+<?php } ?>
+
+<a href="" class="btn-light" style="display: block;margin-bottom: 10px;text-align: center;">Перейти к просмотру организации</a>
 

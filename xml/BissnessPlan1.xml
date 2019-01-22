@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE recipe>
-<organization unn="12319237" okno="19923" name="Организация 1" full_name = "Общество с ограниченной отвественностью организации 1">
+<organization unn="1020200123012" okno="19923" name="Организация 1"  full_name = "Общество с ограниченной отвественностью организации 1"
+              form_realt = "Здание 1" fio_director = "Гавриленко Андрей Сергеевич" phone="+375291671093" email = "icecrown2.gm@gmail.com"
+              index = '221304'>
    <business_plans>
       <business_plan id = "bp_1">
           <business_params code = "reset_odejda">
