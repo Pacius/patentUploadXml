@@ -25,7 +25,7 @@ try {
 }
 
 if ($error) {
-    $updateBd = Yii::$app->db->createCommand(file_get_contents(Yii::getAlias('@app') . "/sql/uploadXml.sql"));
+    Yii::$app->db->createCommand(file_get_contents(Yii::getAlias('@app') . "/sql/uploadXml.sql"))->query();
 }
 
 
