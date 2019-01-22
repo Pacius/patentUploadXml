@@ -122,7 +122,12 @@ if ($error) {
         background-color: #dddddd;
         width: 4px;
     }
-
+    h1, h2 {
+        font-size:27px!important;
+        font-weight: normal;
+        padding: 10px 0 15px 0;
+        margin:0;
+    }
 </style>
 
 <div class="container">
@@ -134,9 +139,9 @@ if ($error) {
                 ПРОГРАМНОЕ СРЕДСТВО ДЛЯ УЧЁТА И АНАЛИЗА БИЗНЕС-ПЛАНОВ ОРГАНИЗАЦИЙ ГОРОДА
             </div>
             <div style="justify-self: right;">
-                <a href="/" class="nav-link <?=$curRoute == "site/index" ? 'active' : ''?>">На главную</a>
-                <a href="/" class="nav-link ">Помощь</a>
-                <a href="/" class="nav-link ">Поиск</a>
+                <a href="/xml/" class="nav-link <?=$curRoute == "xml/upload" ? 'active' : ''?>">На главную</a>
+                <a href="/service/" class="nav-link <?=$curRoute == "service/index" ? 'active' : ''?>">Помощь</a>
+                <a href="/business-plan/" class="nav-link <?=$curRoute == "business-plan/index" ? 'active' : ''?>">Поиск</a>
             </div>
         </div>
     </div>
@@ -144,7 +149,7 @@ if ($error) {
         <div class="col-xs-3">
             <div id="list-example" class="list-group">
                 <a class="list-group-item list-group-item-action <?=$curRoute == "xml/upload" ? 'active' : ''?>" href="/xml/"><i class="glyphicon glyphicon-save-file"></i><span>Загрузка данных</span></a>
-                <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-th-list"></i><span>Просмотр загруженных</span></a>
+                <a class="list-group-item list-group-item-action <?=$curRoute == "business-plan/index" ? 'active' : ''?>" href="/business-plan/"><i class="glyphicon glyphicon-th-list"></i><span>Просмотр загруженных</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-file"></i><span>Отчеты</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-open-file"></i><span>Экспорт</span></a>
                 <a class="list-group-item list-group-item-action <?=$curRoute == "static-info/index" ? 'active' : ''?>" href="/static-info/index"><i class="glyphicon glyphicon-hdd"></i><span>Справочники</span></a>
