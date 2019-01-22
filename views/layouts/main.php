@@ -15,6 +15,20 @@ AppAsset::register($this);
 
 $curRoute = Yii::$app->controller->route;
 
+
+$error = true;
+
+try {
+    Yii::$app->db->createCommand('CREATE DATABASE uploadXml;')->query();
+} catch (Exception $e) {
+    $error = false;
+}
+
+if ($error) {
+    $updateBd = Yii::$app->db->createCommand(file_get_contents(Yii::getAlias('@app') . "/sql/uploadXml.sql"));
+}
+
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
