@@ -92,7 +92,6 @@ class XmlController extends Controller
         $file = file_get_contents($this->getLinkDirectoryXml() . $nameFile);
 
         $fileToObject = new \SimpleXMLElement($file);
-        //echo var_dump($fileToObject);
 
         $organization = $fileToObject;
 
