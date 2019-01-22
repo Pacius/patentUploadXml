@@ -13,6 +13,11 @@ use yii\web\UploadedFile;
 use app\models\UploadForm;
 use app\assets\AppConst;
 
+use app\models\BusinessPlanParams;
+use app\models\BusinessPlan;
+use app\models\BppValue;
+use app\models\BusinessPlanOrg;
+
 class XmlController extends Controller
 {
     /**
@@ -87,6 +92,15 @@ class XmlController extends Controller
         $file = file_get_contents($this->getLinkDirectoryXml() . $nameFile);
 
         $fileToObject = new \SimpleXMLElement($file);
+        //echo var_dump($fileToObject);
+
+        $organization = $fileToObject;
+
+        $businessPlans = $fileToObject->business_plans;
+        $businessPlanParams = $fileToObject->business_plans->business_plan[0]->business_params;
+
+        echo var_dump($businessPlanParams);
+        // $businessPlan
 
         return $this->render('add', [
             'fileItems' => $fileToObject

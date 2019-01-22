@@ -59,6 +59,7 @@ if ($error) {
         border-radius: 2px;
         min-height: 247px;
         padding: 10px;
+        min-height: 450px;
     }
     .nav-link {
         opacity: 0.6;
