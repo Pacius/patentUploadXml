@@ -19,13 +19,13 @@ $curRoute = Yii::$app->controller->route;
 $error = true;
 
 try {
-    Yii::$app->db->createCommand('CREATE DATABASE uploadXml;')->query();
+    Yii::$app->db->createCommand('CREATE DATABASE uploadXml;use uploadXml;')->query();
 } catch (Exception $e) {
     $error = false;
 }
 
 if ($error) {
-    Yii::$app->db->createCommand(file_get_contents(Yii::getAlias('@app') . "/sql/uploadXml.sql"))->query();
+    Yii::$app->db->createCommand(file_get_contents(Yii::getAlias('@app') . "/sql/uploadXml.sql"))query();
 }
 
 
