@@ -25,7 +25,7 @@ try {
 }
 
 if ($error) {
-    Yii::$app->db->createCommand(file_get_contents(Yii::getAlias('@app') . "/sql/uploadXml.sql"))query();
+    Yii::$app->db->createCommand(file_get_contents(Yii::getAlias('@app') . "/sql/uploadXml.sql"))->query();
 }
 
 
