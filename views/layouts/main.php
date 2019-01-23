@@ -14,7 +14,7 @@ use app\assets\AppAsset;
 AppAsset::register($this);
 
 $curRoute = Yii::$app->controller->route;
-
+$curController = Yii::$app->controller->id;
 
 $error = true;
 
@@ -55,7 +55,7 @@ if ($error) {
         color:black;
     }
     .list-group-item i{
-        margin-right: 10px;
+        margin-left: 10px;
     }
     .main-container {
         border: 1px solid #ddd;
@@ -133,9 +133,10 @@ if ($error) {
         margin:0;
     }
     .list-group-item {
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
         display: flex;
+        flex-direction: row-reverse;
     }
 </style>
 
@@ -158,7 +159,7 @@ if ($error) {
         <div class="col-xs-3">
             <div id="list-example" class="list-group">
                 <a class="list-group-item list-group-item-action <?=$curRoute == "xml/upload" ? 'active' : ''?>" href="/xml/"><i class="glyphicon glyphicon-save-file"></i><span>Загрузка данных</span></a>
-                <a class="list-group-item list-group-item-action <?=$curRoute == "organizations/index" ? 'active' : ''?>" href="/organizations/"><i class="glyphicon glyphicon-th-list"></i><span>Просмотр загруженных</span></a>
+                <a class="list-group-item list-group-item-action <?=$curController == "organizations" ? 'active' : ''?>" href="/organizations/"><i class="glyphicon glyphicon-th-list"></i><span>Просмотр загруженных</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-file"></i><span>Отчеты</span></a>
                 <a class="list-group-item list-group-item-action" href="/"><i class="glyphicon glyphicon-open-file"></i><span>Экспорт</span></a>
                 <a class="list-group-item list-group-item-action <?=$curRoute == "static-info/index" ? 'active' : ''?>" href="/static-info/index"><i class="glyphicon glyphicon-hdd"></i><span>Справочники</span></a>
