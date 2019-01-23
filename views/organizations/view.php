@@ -55,7 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             [
-                'attribute' => 'id_business_plan',
+                //'attribute' => 'id_business_plan',
+                'label' => 'Бизнес план',
                 'format'    => 'raw',
                 'value'     => function ($model) {
                     return '<a href="/business-plan-view/view?id=' . $model->businessPlan->id . '">' . $model->businessPlan->name . '</a>';
@@ -68,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
             ],
             [
-                'attribute' => 'value',
+                'label' => 'Используется?',
                 'value'     => function ($model) {
                     return $model->value ? 'Да' : 'Нет';
                 }
