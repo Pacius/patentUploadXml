@@ -40,7 +40,7 @@ $issetUser = $user->id;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title ?? 'ПС для учёта и анализа бизнес-планов организаций города') ?></title>
     <?php $this->head() ?>
 </head>
 <body>
