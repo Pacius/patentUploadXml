@@ -71,7 +71,7 @@ class OrganizationsController extends Controller
             ->where(['value' => 1])
             ->andWhere(['id_organization' => $id_organization])
             ->one();
-        $searchModelBpv->id_business_plan = $businessPlanId->id_business_plan;
+        $searchModelBpv->id_business_plan = $businessPlanId->id_business_plan ?? 0;
         $dataProviderBpv = $searchModelBpv->search(Yii::$app->request->queryParams);
 
         return $this->render('view', [

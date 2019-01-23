@@ -35,15 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'unn',
-            //'okno',
-            //'name',
-
-            //'form_realt',
-            //'fio_director',
             'phone',
-            //'email:email',
-            //'url:url',
-            //'index',
 
             [
                 'class'    => 'yii\grid\ActionColumn',
