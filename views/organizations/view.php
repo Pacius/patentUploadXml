@@ -13,20 +13,30 @@ $this->params['breadcrumbs'][] = ['label' => 'Организации', 'url' => 
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<?php Pjax::begin(['enablePushState' => false]); ?>
+
+<style>
+    a.glyphicon {
+        text-decoration: none;
+    }
+</style>
 <div class="organizations-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>
+        <?= Html::encode($this->title) ?>
+        <span style="font-size:16px;">
+            <?= Html::a('', ['update', 'id' => $model->id], ['class' => 'glyphicon glyphicon-edit']) ?>
+            <?= Html::a('', ['delete', 'id' => $model->id], [
+                'class' => 'glyphicon glyphicon-remove',
+                'data'  => [
+                    'confirm' => 'Вы точно хотите удалить организацию?',
+                    'method'  => 'post',
+                ],
+            ]) ?>
+        </span>
+    </h1>
 
     <p>
-        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data'  => [
-                'confirm' => 'Вы точно хотите удалить организацию?',
-                'method'  => 'post',
-            ],
-        ]) ?>
+
     </p>
 
     <?= DetailView::widget([
@@ -49,6 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div>
         <h2>Бизнес планы организации</h2>
     </div>
+
     <?= GridView::widget([
         'dataProvider' => $dataProviderBpo,
         //'filterModel' => $searchModelBpo,
@@ -86,13 +97,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     ]); ?>
 
-
     <div>
         <h2>Действия направленные на осуществление бизнес плана</h2>
     </div>
 
-
-
+    <?php Pjax::begin(['enablePushState' => false]); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProviderBpv,
         //'filterModel'  => $searchModelBpv,
@@ -101,19 +110,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'label' => 'Код',
-                'value' => function($model) {
+                'value' => function ($model) {
                     return $model->planParams->code;
                 }
             ],
             [
                 'label' => 'Название',
-                'value' => function($model) {
+                'value' => function ($model) {
                     return $model->planParams->name;
                 }
             ],
             [
                 'label' => 'Описание параметра',
-                'value' => function($model) {
+                'value' => function ($model) {
                     return $model->planParams->name;
                 }
             ],
@@ -133,6 +142,4 @@ $this->params['breadcrumbs'][] = $this->title;
         'emptyText'    => 'Данных по параметрам не найдено!',
     ]); ?>
     <?php Pjax::end(); ?>
-
-
 </div>

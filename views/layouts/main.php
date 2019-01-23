@@ -132,6 +132,11 @@ if ($error) {
         padding: 10px 0 15px 0;
         margin:0;
     }
+    .list-group-item {
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+    }
 </style>
 
 <div class="container">
