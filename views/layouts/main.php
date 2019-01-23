@@ -196,8 +196,8 @@ $issetUser = $user->id;
             <div style="text-align: right;font-size: 11px;">
                 Вы вошли как: <b><?=$user->identity->username?></b> <?= Html::a('Выйти', ['site/logout'], ['data' => ['method' => 'post'], 'class' => 'nav-link']) ?>
             </div>
-            <?php } ?>
         </div>
+        <?php } ?>
         <div class="col-xs-<?=$issetUser ? '9' : '12'?>">
             <div class="col-12 main-container">
                 <?= Breadcrumbs::widget([
