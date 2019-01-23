@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Organizations */
@@ -12,6 +13,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Организации', 'url' => 
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<?php Pjax::begin(['enablePushState' => false]); ?>
 <div class="organizations-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -56,21 +58,21 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             [
                 //'attribute' => 'id_business_plan',
-                'label' => 'Бизнес план',
-                'format'    => 'raw',
-                'value'     => function ($model) {
+                'label'  => 'Бизнес план',
+                'format' => 'raw',
+                'value'  => function ($model) {
                     return '<a href="/business-plan-view/view?id=' . $model->businessPlan->id . '">' . $model->businessPlan->name . '</a>';
                 }
             ],
             [
-                    'label' => 'Описание',
-                    'value' => function ($model) {
-                            return $model->businessPlan->description;
-                    }
+                'label' => 'Описание',
+                'value' => function ($model) {
+                    return $model->businessPlan->description;
+                }
             ],
             [
                 'label' => 'Используется?',
-                'value'     => function ($model) {
+                'value' => function ($model) {
                     return $model->value ? 'Да' : 'Нет';
                 }
             ],
@@ -80,8 +82,57 @@ $this->params['breadcrumbs'][] = $this->title;
                 'controller' => 'business-plan-org'
             ],
         ],
-        'emptyText' => 'Нет бизнес планов для организации!',
+        'emptyText'    => 'Нет бизнес планов для организации!',
 
     ]); ?>
+
+
+    <div>
+        <h2>Действия направленные на осуществление бизнес плана</h2>
+    </div>
+
+
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProviderBpv,
+        //'filterModel'  => $searchModelBpv,
+        'columns'      => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            [
+                'label' => 'Код',
+                'value' => function($model) {
+                    return $model->planParams->code;
+                }
+            ],
+            [
+                'label' => 'Название',
+                'value' => function($model) {
+                    return $model->planParams->name;
+                }
+            ],
+            [
+                'label' => 'Описание параметра',
+                'value' => function($model) {
+                    return $model->planParams->name;
+                }
+            ],
+            //'id_business_plan',
+            [
+                'label' => 'Значение',
+                'value' => function ($model) {
+                    return $model->value;
+                }
+            ],
+
+            [
+                'class'    => 'yii\grid\ActionColumn',
+                'template' => '{delete}'
+            ],
+        ],
+        'emptyText'    => 'Данных по параметрам не найдено!',
+    ]); ?>
+    <?php Pjax::end(); ?>
+
 
 </div>

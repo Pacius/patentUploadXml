@@ -3,19 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Organizations;
-use app\models\OrganizationsSearch;
+use app\models\BppValue;
+use app\models\BppValueSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\models\BusinessPlanOrgSearch;
-use app\models\BppValueSearch;
-use yii\web\Request;
 
 /**
- * OrganizationsController implements the CRUD actions for Organizations model.
+ * BppValueController implements the CRUD actions for BppValue model.
  */
-class OrganizationsController extends Controller
+class BppValueController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -24,7 +21,7 @@ class OrganizationsController extends Controller
     {
         return [
             'verbs' => [
-                'class'   => VerbFilter::className(),
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -33,53 +30,41 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Lists all Organizations models.
+     * Lists all BppValue models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel  = new OrganizationsSearch();
+        $searchModel = new BppValueSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel'  => $searchModel,
-            'dataProvider' => $dataProvider
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Organizations model.
+     * Displays a single BppValue model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-        $searchModelBpo                  = new BusinessPlanOrgSearch();
-        $searchModelBpo->id_organization = Yii::$app->request->get('id');
-        $dataProviderBpo                 = $searchModelBpo->search(Yii::$app->request->queryParams);
-
-
-        $searchModelBpv  = new BppValueSearch();
-        $dataProviderBpv = $searchModelBpv->search(Yii::$app->request->queryParams);
-
         return $this->render('view', [
-            'model'           => $this->findModel($id),
-            'searchModelBpo'  => $searchModelBpo,
-            'dataProviderBpo' => $dataProviderBpo,
-            'searchModelBpv'  => $searchModelBpv,
-            'dataProviderBpv' => $dataProviderBpv
+            'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new Organizations model.
+     * Creates a new BppValue model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Organizations();
+        $model = new BppValue();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -91,7 +76,7 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Updates an existing Organizations model.
+     * Updates an existing BppValue model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -111,7 +96,7 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Deletes an existing Organizations model.
+     * Deletes an existing BppValue model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -121,19 +106,19 @@ class OrganizationsController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**
-     * Finds the Organizations model based on its primary key value.
+     * Finds the BppValue model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Organizations the loaded model
+     * @return BppValue the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Organizations::findOne($id)) !== null) {
+        if (($model = BppValue::findOne($id)) !== null) {
             return $model;
         }
 
