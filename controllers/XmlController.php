@@ -30,17 +30,17 @@ class XmlController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only'  => ['logout'],
                 'rules' => [
                     [
                         'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -101,26 +101,26 @@ class XmlController extends Controller
 
         $fileToObject = new \SimpleXMLElement($file);
 
-        $unn = (string)$fileToObject['unn'];
+        $unn          = (string)$fileToObject['unn'];
         $organization = Organizations::find()->where(['unn' => $unn])->one();
 
         $isNewOrganization = false;
 
         if (!$organization) {
-            $organization = new Organizations();
+            $organization      = new Organizations();
             $isNewOrganization = true;
         }
 
-        $organization->unn = (string)$fileToObject['unn'] ?? null;
-        $organization->okno = (string)$fileToObject['okno'] ?? null;
-        $organization->name = (string)$fileToObject['name'] ?? null;
-        $organization->full_name = (string)$fileToObject['full_name'] ?? null;
-        $organization->form_realt = (string)$fileToObject['form_realt'] ?? null;
+        $organization->unn          = (string)$fileToObject['unn'] ?? null;
+        $organization->okno         = (string)$fileToObject['okno'] ?? null;
+        $organization->name         = (string)$fileToObject['name'] ?? null;
+        $organization->full_name    = (string)$fileToObject['full_name'] ?? null;
+        $organization->form_realt   = (string)$fileToObject['form_realt'] ?? null;
         $organization->fio_director = (string)$fileToObject['fio_director'] ?? null;
-        $organization->phone = (string)$fileToObject['phone'] ?? null;
-        $organization->email = (string)$fileToObject['email'] ?? null;
-        $organization->url = (string)$fileToObject['url'] ?? null;
-        $organization->index = (string)$fileToObject['index'] ?? null;
+        $organization->phone        = (string)$fileToObject['phone'] ?? null;
+        $organization->email        = (string)$fileToObject['email'] ?? null;
+        $organization->url          = (string)$fileToObject['url'] ?? null;
+        $organization->index        = (string)$fileToObject['index'] ?? null;
 
         if ($organization->validate()) {
             $organization->save();
@@ -149,9 +149,12 @@ class XmlController extends Controller
                     ->one();
 
                 if (!$businessPlanOrg) {
-                    $businessPlanOrg = new BusinessPlanOrg();
+                    $businessPlanOrg                   = new BusinessPlanOrg();
                     $businessPlanOrg->id_business_plan = $businessPlanModel->id;
-                    $businessPlanOrg->id_organization = $organization->id;
+                    $businessPlanOrg->id_organization  = $organization->id;
+                    $businessPlanOrg->value            = !(string)$businessPlanArray['activate'] ?
+                        null : 1;
+
 
                     if ($businessPlanOrg->validate()) {
                         $businessPlanOrg->save();
@@ -173,10 +176,10 @@ class XmlController extends Controller
                         ->where(['id_plan_params' => $businessPlanParams->id])->one();
 
                     if (!$bbpValue) {
-                        $bbpValue = new BppValue();
+                        $bbpValue                   = new BppValue();
                         $bbpValue->id_business_plan = $businessPlanModel->id;
-                        $bbpValue->id_plan_params = $businessPlanParams->id;
-                        $bbpValue->value = trim((string)$bpp[0]);
+                        $bbpValue->id_plan_params   = $businessPlanParams->id;
+                        $bbpValue->value            = trim((string)$bpp[0]);
                         if ($bbpValue->validate()) {
                             $bbpValue->save();
                             $logs['result'][] = 'Параметр: ' . $businessPlanParams->code . ' для плана ' . $businessPlanModel->code . " установлен на " . $bbpValue->value;
@@ -186,7 +189,7 @@ class XmlController extends Controller
             }
         }
 
-        return $this->render('add', ['logs' => $logs, 'link' => '/organizations/view?id='.$organization->id]);
+        return $this->render('add', ['logs' => $logs, 'link' => '/organizations/view?id=' . $organization->id]);
     }
 
 }

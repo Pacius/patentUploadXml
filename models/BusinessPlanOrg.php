@@ -44,10 +44,10 @@ class BusinessPlanOrg extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'id_business_plan' => 'Id Business Plan',
-            'id_organization' => 'Id Organization',
-            'value' => 'Value',
+            'id' => 'Уникальный номер',
+            'id_business_plan' => 'Бизнес план',
+            'id_organization' => 'Организация',
+            'value' => 'Используется',
         ];
     }
 

@@ -4,7 +4,7 @@
               form_realt = "Здание 1" fio_director = "Гавриленко Андрей Сергеевич" phone="+375291671093" email = "icecrown2.gm@gmail.com"
               index = '221304'>
    <business_plans>
-      <business_plan id = "bp_1">
+      <business_plan id = "bp_1" activate = "true">
           <business_params code = "reset_odejda">
               true
           </business_params>

@@ -8,6 +8,9 @@ use app\models\OrganizationsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\BusinessPlanOrg;
+use app\models\BusinessPlanOrgSearch;
+use yii\web\Request;
 
 /**
  * OrganizationsController implements the CRUD actions for Organizations model.
@@ -21,7 +24,7 @@ class OrganizationsController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -35,12 +38,12 @@ class OrganizationsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new OrganizationsSearch();
+        $searchModel  = new OrganizationsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel'  => $searchModel,
+            'dataProvider' => $dataProvider
         ]);
     }
 
@@ -52,8 +55,14 @@ class OrganizationsController extends Controller
      */
     public function actionView($id)
     {
+        $searchModelBpo  = new BusinessPlanOrgSearch();
+        $searchModelBpo->id_organization = Yii::$app->request->get('id');
+        $dataProviderBpo = $searchModelBpo->search(Yii::$app->request->queryParams);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'searchModelBpo'  => $searchModelBpo,
+            'dataProviderBpo' => $dataProviderBpo
         ]);
     }
 
