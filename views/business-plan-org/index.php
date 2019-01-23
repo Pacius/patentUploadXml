@@ -29,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'id_business_plan',
                 'format'    => 'raw',
-                'value' => function ($model,$t) {
-                    return '<a href="/business-plan-view/?view='.$model->businessPlan->id.'">'.$model->businessPlan->name.'</a>';
+                'value' => function ($model) {
+                    return '<a href="/business-plan-view/view?id='.$model->businessPlan->id.'">'.$model->businessPlan->name.'</a>';
                 }
             ],
             'id_organization',
