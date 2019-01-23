@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\BusinessPlan;
+use app\models\BusinessPlanOrg;
 use Yii;
 use app\models\Organizations;
 use app\models\OrganizationsSearch;
@@ -10,6 +12,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\BusinessPlanOrgSearch;
 use app\models\BppValueSearch;
+
 use yii\web\Request;
 
 /**
@@ -55,12 +58,20 @@ class OrganizationsController extends Controller
      */
     public function actionView($id)
     {
+        $id_organization = Yii::$app->request->get('id');
+
         $searchModelBpo                  = new BusinessPlanOrgSearch();
-        $searchModelBpo->id_organization = Yii::$app->request->get('id');
+        $searchModelBpo->id_organization = $id_organization;
         $dataProviderBpo                 = $searchModelBpo->search(Yii::$app->request->queryParams);
 
 
-        $searchModelBpv  = new BppValueSearch();
+        $searchModelBpv = new BppValueSearch();
+
+        $businessPlanId = BusinessPlanOrg::find()
+            ->where(['value' => 1])
+            ->andWhere(['id_organization' => $id_organization])
+            ->one();
+        $searchModelBpv->id_business_plan = $businessPlanId->id_business_plan;
         $dataProviderBpv = $searchModelBpv->search(Yii::$app->request->queryParams);
 
         return $this->render('view', [

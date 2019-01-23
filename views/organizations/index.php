@@ -11,7 +11,6 @@ use yii\widgets\Pjax;
 $this->title                   = 'Организации';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php Pjax::begin(['enablePushState' => false]); ?>
 
 <div class="organizations-index">
 
@@ -32,10 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'full_name',
                 'format'    => 'raw',
                 'value'     => function ($model) {
-                    return Html::a($model->full_name, '/organizations/view?id=' . $model->id, [
-                        'target'     => '_blank',
-                        'data-pajax' => '0'
-                    ]);
+                    return Html::a($model->full_name, '/organizations/view?id=' . $model->id);
                 }
             ],
             'unn',
@@ -58,4 +54,3 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 
 </div>
-<?php Pjax::end(); ?>

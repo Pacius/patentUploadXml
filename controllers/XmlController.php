@@ -145,7 +145,7 @@ class XmlController extends Controller
             } else {
                 $businessPlanOrg = BusinessPlanOrg::find()
                     ->where(['id_business_plan' => $businessPlanModel->id])
-                    ->where(['id_organization' => $organization->id])
+                    ->andWhere(['id_organization' => $organization->id])
                     ->one();
 
                 if (!$businessPlanOrg) {
